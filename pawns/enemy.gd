@@ -30,7 +30,7 @@ func list_contains_pos(l, pos):
 
 func insert_into_sorted(l, item):
 	var i = 0
-	while i < len(l) and l[i]['cost'] + l[i]['est_to_end'] < item['cost'] + l[i]['est_to_end']:
+	while i < len(l) and l[i]['cost'] + l[i]['est_to_end'] < item['cost'] + item['est_to_end']:
 		i += 1
 	l.insert(i, item)
 
@@ -40,14 +40,15 @@ func get_input_direction():
 	counter += 1
 	
 	if counter % 30 == 0:
-	
+		
 		var grid = get_parent()
 		var bounding_rect = grid.get_used_rect()
-		var cells = grid.get_used_cells()
 		
 		var player = get_node('../Player')
 		var player_pos = player.get_position() / 64 - bounding_rect.position - Vector2(.5, .5)
-		
+	
+		var cells = grid.get_used_cells()
+	
 		var map = []
 		for y in range(0, bounding_rect.size.y):
 			map.append([])
@@ -73,16 +74,23 @@ func get_input_direction():
 				var new_pos = current['pos'] + dir
 				if map[new_pos.y][new_pos.x] <= 0:
 					var node = list_contains_pos(visited, new_pos)
-					if node:
-						if node['cost'] > current['cost'] + 1:
+					if !node:
+						node = list_contains_pos(to_visit, new_pos)
+						if node:
+							if node['cost'] > current['cost'] + 1:
+								insert_into_sorted(to_visit, Node(new_pos, end, current['pos'], current['cost'] + 1))
+								#to_visit.append(Node(new_pos, current['pos'], current['cost'] + 1))
+						else:
 							insert_into_sorted(to_visit, Node(new_pos, end, current['pos'], current['cost'] + 1))
 							#to_visit.append(Node(new_pos, current['pos'], current['cost'] + 1))
-					else:
-						insert_into_sorted(to_visit, Node(new_pos, end, current['pos'], current['cost'] + 1))
-						#to_visit.append(Node(new_pos, current['pos'], current['cost'] + 1))
-			
 			visited.append(current)
-			to_visit.remove(0)
+			var i = 0
+			while i < len(to_visit):
+				if to_visit[i]['pos'] == current['pos']:
+					to_visit.remove(i)
+					break
+				i += 1
+					
 			if len(to_visit) > 0:
 				current = to_visit[0]
 			else:
@@ -97,6 +105,8 @@ func get_input_direction():
 			else:
 				parent = list_contains_pos(visited, path[0]['parent'])
 			path.insert(0, parent)
+			
+		print(len(visited))
 		
 		var direction = path[1]['pos'] - path[0]['pos']
 		return direction
