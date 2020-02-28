@@ -20,10 +20,7 @@ func _process(_delta):
 
 
 func get_input_direction():
-	return Vector2(
-		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
-		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	)
+	return false
 
 
 func update_look_direction(direction):
