@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav-5ef64e1cff1e7961c28daff8cfe75cd2.sample"
+
+[deps]
+
+source_file="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav"
+dest_files=[ "res://.import/media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav-5ef64e1cff1e7961c28daff8cfe75cd2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
