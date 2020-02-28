@@ -35,7 +35,6 @@ func insert_into_sorted(l, item):
 		i += 1
 	l.insert(i, item)
 
-
 func get_input_direction():
 	
 	counter += 1

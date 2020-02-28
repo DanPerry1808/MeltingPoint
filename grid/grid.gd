@@ -1,10 +1,12 @@
 extends TileMap
 
 enum CellType { EMPTY = -1, ACTOR, OBSTACLE, OBJECT }
+onready var Floor = get_node("Floor")
 
 func _ready():
 	for child in get_children():
-		set_cellv(world_to_map(child.position), child.type)
+		if child.name != "Floor":
+			set_cellv(world_to_map(child.position), child.type)
 
 
 func get_cell_pawn(coordinates):
@@ -12,22 +14,33 @@ func get_cell_pawn(coordinates):
 		if world_to_map(node.position) == coordinates:
 			return(node)
 
-
 func request_move(pawn, direction):
-	var cell_start = world_to_map(pawn.position)
-	var cell_target = cell_start + direction
-	
-	var cell_target_type = get_cellv(cell_target)
-	match cell_target_type:
-		CellType.EMPTY:
-			return update_pawn_position(pawn, cell_start, cell_target)
-		CellType.OBJECT:
-			var object_pawn = get_cell_pawn(cell_target)
-			object_pawn.queue_free()
-			return update_pawn_position(pawn, cell_start, cell_target)
-		CellType.ACTOR:
-			var pawn_name = get_cell_pawn(cell_target).name
-			print("Cell %s contains %s" % [cell_target, pawn_name])
+	if !pawn.dead:
+		var cell_start = world_to_map(pawn.position)
+		var cell_target = cell_start + direction
+		var floor_target = Floor.get_cellv(cell_target)
+		var cell_target_type = get_cellv(cell_target)
+		match cell_target_type:
+			CellType.EMPTY:
+				if(pawn.name == "Player"):
+					match floor_target:
+						1:
+							pawn.onHot = false
+							pawn.onCold = true
+						2:
+							pawn.onCold = false
+							pawn.onHot = true
+						_:
+							pawn.onHot = false
+							pawn.onCold = false
+				return update_pawn_position(pawn, cell_start, cell_target)
+			CellType.OBJECT:
+				var object_pawn = get_cell_pawn(cell_target)
+				object_pawn.queue_free()
+				return update_pawn_position(pawn, cell_start, cell_target)
+			CellType.ACTOR:
+				var pawn_name = get_cell_pawn(cell_target).name
+				print("Cell %s contains %s" % [cell_target, pawn_name])
 
 
 func update_pawn_position(pawn, cell_start, cell_target):

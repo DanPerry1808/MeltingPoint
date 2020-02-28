@@ -4,12 +4,6 @@
 [ext_resource path="res://tilesets/grid/obstacle.png" type="Texture" id=2]
 [ext_resource path="res://tilesets/grid/object.png" type="Texture" id=3]
 
-[sub_resource type="NavigationPolygon" id=1]
-
-[sub_resource type="NavigationPolygon" id=2]
-
-[sub_resource type="NavigationPolygon" id=3]
-
 [resource]
 0/name = "Actor"
 0/texture = ExtResource( 1 )
