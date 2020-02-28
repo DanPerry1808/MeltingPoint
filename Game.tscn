@@ -3,9 +3,9 @@
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://grid/grid.gd" type="Script" id=3]
-[ext_resource path="res://pawns/Actor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pawns/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pawns/pawn.gd" type="Script" id=5]
-[ext_resource path="res://pawns/sprites/character_grey.png" type="Texture" id=6]
+[ext_resource path="res://pawns/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pawns/sprites/star.png" type="Texture" id=7]
 
 [node name="Game" type="Node"]
@@ -30,16 +30,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Actor" parent="Grid" instance=ExtResource( 4 )]
-position = Vector2( 416, 288 )
+[node name="Player" parent="Grid" instance=ExtResource( 4 )]
 
-[node name="Actor2" type="Node2D" parent="Grid"]
-position = Vector2( 480, 480 )
-z_index = 1
-script = ExtResource( 5 )
-
-[node name="Sprite" type="Sprite" parent="Grid/Actor2"]
-texture = ExtResource( 6 )
+[node name="Enemy" parent="Grid" instance=ExtResource( 6 )]
+position = Vector2( 352, 288 )
 
 [node name="Object" type="Node2D" parent="Grid"]
 position = Vector2( 544, 288 )
@@ -52,5 +46,3 @@ texture = ExtResource( 7 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
 current = true
-
-[editable path="Grid/Actor"]
