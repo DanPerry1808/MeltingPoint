@@ -105,8 +105,6 @@ func get_input_direction():
 			else:
 				parent = list_contains_pos(visited, path[0]['parent'])
 			path.insert(0, parent)
-			
-		print(len(visited))
 		
 		var direction = path[1]['pos'] - path[0]['pos']
 		return direction
