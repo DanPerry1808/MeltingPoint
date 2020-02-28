@@ -15,31 +15,32 @@ func get_cell_pawn(coordinates):
 			return(node)
 
 func request_move(pawn, direction):
-	var cell_start = world_to_map(pawn.position)
-	var cell_target = cell_start + direction
-	var floor_target = Floor.get_cellv(cell_target)
-	var cell_target_type = get_cellv(cell_target)
-	match cell_target_type:
-		CellType.EMPTY:
-			if(pawn.name == "Player"):
-				match floor_target:
-					1:
-						pawn.onHot = false
-						pawn.onCold = true
-					2:
-						pawn.onCold = false
-						pawn.onHot = true
-					_:
-						pawn.onHot = false
-						pawn.onCold = false
-			return update_pawn_position(pawn, cell_start, cell_target)
-		CellType.OBJECT:
-			var object_pawn = get_cell_pawn(cell_target)
-			object_pawn.queue_free()
-			return update_pawn_position(pawn, cell_start, cell_target)
-		CellType.ACTOR:
-			var pawn_name = get_cell_pawn(cell_target).name
-			print("Cell %s contains %s" % [cell_target, pawn_name])
+	if !pawn.dead:
+		var cell_start = world_to_map(pawn.position)
+		var cell_target = cell_start + direction
+		var floor_target = Floor.get_cellv(cell_target)
+		var cell_target_type = get_cellv(cell_target)
+		match cell_target_type:
+			CellType.EMPTY:
+				if(pawn.name == "Player"):
+					match floor_target:
+						1:
+							pawn.onHot = false
+							pawn.onCold = true
+						2:
+							pawn.onCold = false
+							pawn.onHot = true
+						_:
+							pawn.onHot = false
+							pawn.onCold = false
+				return update_pawn_position(pawn, cell_start, cell_target)
+			CellType.OBJECT:
+				var object_pawn = get_cell_pawn(cell_target)
+				object_pawn.queue_free()
+				return update_pawn_position(pawn, cell_start, cell_target)
+			CellType.ACTOR:
+				var pawn_name = get_cell_pawn(cell_target).name
+				print("Cell %s contains %s" % [cell_target, pawn_name])
 
 
 func update_pawn_position(pawn, cell_start, cell_target):
