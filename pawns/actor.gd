@@ -1,12 +1,5 @@
 extends "pawn.gd"
 
-export(int) var temp = 0
-export(int) var max_temp = 100
-
-var dead: bool = false
-
-signal died
-
 onready var grid = get_parent()
 
 func _ready():
@@ -58,15 +51,3 @@ func bump():
 	yield($AnimationPlayer, "animation_finished")
 	set_process(true)
 
-# Changes the player's temperature by the given amount
-func change_temp(delta):
-	temp += delta
-	# Must check if player is dead after changing temp
-	check_dead()
-
-# Checks if the player has died, called on damage taken
-func check_dead():
-	if temp >= max_temp:
-		dead = true
-		emit_signal("died")
-		
