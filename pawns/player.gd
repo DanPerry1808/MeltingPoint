@@ -9,6 +9,7 @@ var heat_timer = null
 var dead: bool = false
 
 signal died
+signal temp_update
 
 func _ready():
 	heat_timer = Timer.new()
@@ -34,6 +35,7 @@ func get_input_direction():
 # Changes the player's temperature by the given amount
 func change_temp(delta):
 	temp += delta
+	emit_signal("temp_update", delta)
 	print(temp)
 	# Must check if player is dead after changing temp
 	check_dead()
