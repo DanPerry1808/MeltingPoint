@@ -1,5 +1,6 @@
 extends "res://pawns/actor.gd"
 
+# uncomment to get diagonal movement
 var dirs = [
 	Vector2(-1, 0),
 	#Vector2(-1, -1),
