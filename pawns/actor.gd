@@ -4,6 +4,11 @@ var dead: bool = false
 
 onready var grid = get_parent()
 onready var bullet_container = grid.get_node('BulletContainer')
+onready var sfx = {
+	'shoot': $ShootSound,
+	'hit': $HitSound,
+	'die': $DieSound
+}
 
 var Bullet = preload("res://Objects/Bullet.tscn")
 
@@ -70,10 +75,12 @@ func shoot(delta, shooter):
 		var bullet = Bullet.instance()
 		bullet.init(delta, shooter, get_position())
 		bullet_container.add_child(bullet)
+		sfx['shoot'].play()
 	
 # when hit by a bullet
 func on_hit(shooter, damage):
 	bump()
+	sfx['hit'].play()
 	
 
 func on_move():
@@ -86,3 +93,4 @@ func die():
 		$Tween.interpolate_property($Pivot/Sprite, "scale", Vector2(1.4, 1.4), Vector2(0, 0), .3, $Tween.TRANS_CUBIC, $Tween.EASE_OUT)
 		$Tween.start()
 		dead = true
+		sfx['die'].play()
