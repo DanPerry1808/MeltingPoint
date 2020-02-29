@@ -55,6 +55,7 @@ func request_move(pawn, direction):
 
 
 func update_pawn_position(pawn, cell_start, cell_target):
+	pawn.on_move()
 	set_cellv(cell_target, pawn.type)
 	set_cellv(cell_start, CellType.EMPTY)
 	return map_to_world(cell_target) + cell_size / 2
