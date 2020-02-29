@@ -64,6 +64,10 @@ position = Vector2( 864, 544 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
 current = true
+smoothing_enabled = true
+smoothing_speed = 3.0
+
+[node name="Tween" type="Tween" parent="Camera2D"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

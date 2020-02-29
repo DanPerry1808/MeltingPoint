@@ -75,8 +75,13 @@ func on_hit(shooter, damage):
 	bump()
 	
 
+func on_move():
+	pass
+	
+
 func die():
-	$Pivot/Sprite.set_scale(Vector2(1.4, 1.4))
-	$Tween.interpolate_property($Pivot/Sprite, "scale", Vector2(1.4, 1.4), Vector2(0, 0), .3, $Tween.TRANS_CUBIC, $Tween.EASE_OUT)
-	$Tween.start()
-	dead = true
+	if !dead:
+		$Pivot/Sprite.set_scale(Vector2(1.4, 1.4))
+		$Tween.interpolate_property($Pivot/Sprite, "scale", Vector2(1.4, 1.4), Vector2(0, 0), .3, $Tween.TRANS_CUBIC, $Tween.EASE_OUT)
+		$Tween.start()
+		dead = true
