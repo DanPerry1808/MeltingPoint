@@ -1,16 +1,18 @@
 extends Node2D
 
 var delta
-var speed = 400
+var speed = 600
 var shooter
+var damage
 
 onready var grid = get_parent().get_parent()
 onready var bounding_rect = grid.get_used_rect()
 onready var area = $Area2D
 
-func init(d, s, pos):
+func init(d, s, pos, dam=1):
 	delta = d
 	shooter = s
+	damage = dam
 	set_position(pos)
 
 func convert_to_grid_pos(pos):
@@ -20,7 +22,7 @@ func check_collisions():
 	for node in grid.get_children():
 		if node != shooter and "type" in node and node.type == 0:
 			if node.get_node('Area2D').overlaps_area(area):
-				node.on_hit()
+				node.on_hit(shooter, damage)
 				return true
 	
 func _process(dt):
