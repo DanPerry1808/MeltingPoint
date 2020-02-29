@@ -68,6 +68,8 @@ func get_map(end=false):
 	
 func find_path(point, already_grid=false):
 	
+	print(self, ' is finding a new path!')
+	
 	var end
 	if already_grid:
 		end = point
@@ -126,6 +128,7 @@ func find_path(point, already_grid=false):
 func get_input_direction():
 	counter += 1
 	if counter % int(60 * speed) == 0:
+		print('this should be every second')
 		return behaviour()
 	else:
 		return false
