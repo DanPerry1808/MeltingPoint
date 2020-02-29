@@ -28,6 +28,10 @@ func Node(pos, end, parent=null, cost=0):
 		'est_to_end': pos.distance_to(end)
 	}
 	
+	
+func convert_to_grid_pos(pos):
+	return pos / 64 - bounding_rect.position - Vector2(.5, .5)
+	
 func list_contains_pos(l, pos):
 	for item in l:
 		if item['pos'] == pos:
@@ -41,9 +45,13 @@ func insert_into_sorted(l, item):
 		i += 1
 	l.insert(i, item)
 	
-func find_path(point):
+func find_path(point, already_grid=false):
 	
-	var end_point = point / 64 - bounding_rect.position - Vector2(.5, .5)
+	var end
+	if already_grid:
+		end = point
+	else:
+		end = convert_to_grid_pos(point)
 
 	var cells = grid.get_used_cells()
 
@@ -54,14 +62,13 @@ func find_path(point):
 			map[y].append(0)
 			
 	for cell in cells:
-		if cell != player.get_position() / 64 - Vector2(.5, .5):
+		if cell != end + bounding_rect.position:
 			map[cell.y - bounding_rect.position.y][cell.x - bounding_rect.position.x] = 1
 		else:
 			map[cell.y - bounding_rect.position.y][cell.x - bounding_rect.position.x] = -1
 	
 	var visited = []
-	var start = get_position() / 64 - bounding_rect.position - Vector2(.5, .5)
-	var end = end_point
+	var start = convert_to_grid_pos(get_position())
 	var current = Node(start, end)
 	var to_visit = [current]
 	
