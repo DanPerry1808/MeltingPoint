@@ -5,9 +5,8 @@ onready var Floor = get_node("Floor")
 
 func _ready():
 	for child in get_children():
-		if child.name != "Floor":
+		if child.name != "Floor" and child.name != "BulletContainer":
 			set_cellv(world_to_map(child.position), child.type)
-
 
 func get_cell_pawn(coordinates):
 	for node in get_children():
@@ -40,6 +39,9 @@ func request_move(pawn, direction):
 				return update_pawn_position(pawn, cell_start, cell_target)
 			CellType.ACTOR:
 				var pawn_name = get_cell_pawn(cell_target).name
+				if pawn_name == "Player":
+					var player = get_cell_pawn(cell_target)
+					player.change_temp(5)
 				print("Cell %s contains %s" % [cell_target, pawn_name])
 
 
