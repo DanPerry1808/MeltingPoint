@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://grid/EndPoint.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Interface/EndGamePanel/EndGamePanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Grid/Grid.gd" type="Script" id=8]
+[ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=9]
 
 [node name="Level1" type="Node2D"]
 position = Vector2( -2.05057, 2.05054 )
@@ -32,6 +33,9 @@ tile_data = PoolIntArray( 65537, 2, 0, 65540, 1, 0, 65541, 2, 0, 65542, 2, 0, 65
 
 [node name="BulletContainer" parent="Grid" instance=ExtResource( 5 )]
 
+[node name="ShootEnemy" parent="Grid" instance=ExtResource( 9 )]
+position = Vector2( 674.911, 747.982 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 639.454, 360.007 )
 current = true
@@ -45,7 +49,3 @@ visible = false
 position = Vector2( -645.866, -11.1037 )
 
 [node name="UI" parent="Camera2D/UICanvas" instance=ExtResource( 6 )]
-margin_left = 4.10114
-margin_top = 12.3033
-margin_right = 1284.1
-margin_bottom = 732.303

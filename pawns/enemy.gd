@@ -142,5 +142,6 @@ func behaviour():
 	
 	
 func on_hit(shooter, enemy):
+	sfx['hit'].play()
 	die()
 	#grid.kill_pawn(self)
