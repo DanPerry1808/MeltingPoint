@@ -12,16 +12,20 @@ func _ready():
 
 
 func _process(_delta):
-	var input_direction = get_input_direction()
-	if not input_direction:
-		return
-	update_look_direction(input_direction)
-
-	var target_position = grid.request_move(self, input_direction)
-	if target_position:
-		move_to(target_position)
+	if dead:
+		if !$Tween.is_active():
+			grid.kill_pawn(self)
 	else:
-		bump()
+		var input_direction = get_input_direction()
+		if not input_direction:
+			return
+		update_look_direction(input_direction)
+	
+		var target_position = grid.request_move(self, input_direction)
+		if target_position:
+			move_to(target_position)
+		else:
+			bump()
 
 
 func get_input_direction():
@@ -69,3 +73,10 @@ func shoot(delta, shooter):
 # when hit by a bullet
 func on_hit(shooter, damage):
 	bump()
+	
+
+func die():
+	$Pivot/Sprite.set_scale(Vector2(1.4, 1.4))
+	$Tween.interpolate_property($Pivot/Sprite, "scale", Vector2(1.4, 1.4), Vector2(0, 0), .3, $Tween.TRANS_CUBIC, $Tween.EASE_OUT)
+	$Tween.start()
+	dead = true

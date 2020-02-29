@@ -142,4 +142,5 @@ func behaviour():
 	
 	
 func on_hit(shooter, enemy):
-	grid.kill_pawn(self)
+	die()
+	#grid.kill_pawn(self)
