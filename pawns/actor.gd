@@ -67,4 +67,4 @@ func shoot(delta, shooter):
 	
 # when hit by a bullet
 func on_hit(shooter, damage):
-	pass
+	bump()
