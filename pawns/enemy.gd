@@ -31,6 +31,8 @@ func Node(pos, end, parent=null, cost=0):
 	
 func convert_to_grid_pos(pos):
 	return pos / 64 - bounding_rect.position - Vector2(.5, .5)
+
+
 	
 func list_contains_pos(l, pos):
 	for item in l:
@@ -46,16 +48,8 @@ func insert_into_sorted(l, item):
 	l.insert(i, item)
 	
 	
-func find_path(point, already_grid=false):
-	
-	var end
-	if already_grid:
-		end = point
-	else:
-		end = convert_to_grid_pos(point)
-
+func get_map(end=false):
 	var cells = grid.get_used_cells()
-
 	var map = []
 	for y in range(0, bounding_rect.size.y):
 		map.append([])
@@ -67,7 +61,18 @@ func find_path(point, already_grid=false):
 			map[cell.y - bounding_rect.position.y][cell.x - bounding_rect.position.x] = 1
 		else:
 			map[cell.y - bounding_rect.position.y][cell.x - bounding_rect.position.x] = -1
+	return map
 	
+func find_path(point, already_grid=false):
+	
+	var end
+	if already_grid:
+		end = point
+	else:
+		end = convert_to_grid_pos(point)
+
+	var map = get_map(end)
+
 	var visited = []
 	var start = convert_to_grid_pos(get_position())
 	var current = Node(start, end)
