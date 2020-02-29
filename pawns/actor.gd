@@ -46,6 +46,7 @@ func move_to(target_position):
 	# and animate the sprite moving from the start to the target cell
 		var move_direction = (target_position - position).normalized()
 		$Tween.interpolate_property($Pivot, "position", - move_direction * 32, Vector2(), $AnimationPlayer.current_animation_length, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		$Pivot.set_position(-move_direction * 32)
 		position = target_position
 
 		$Tween.start()
