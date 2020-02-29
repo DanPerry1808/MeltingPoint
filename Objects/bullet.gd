@@ -3,7 +3,7 @@ extends Node2D
 var delta
 var speed = 600
 var shooter
-var damage
+var damage = 1
 
 onready var grid = get_parent().get_parent()
 onready var bounding_rect = grid.get_used_rect()
@@ -12,7 +12,6 @@ onready var area = $Area2D
 func init(d, s, pos, dam=1):
 	delta = d
 	shooter = s
-	damage = dam
 	set_position(pos)
 
 func convert_to_grid_pos(pos):
