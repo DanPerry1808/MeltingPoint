@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://pawns/actor.gd" type="Script" id=1]
 [ext_resource path="res://pawns/sprites/character_grey.png" type="Texture" id=2]
@@ -61,6 +61,9 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.20007, 0.917384 ), Vector2( 0.916712, 1.13495 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24, 24 )
+
 [node name="Actor" type="Node2D"]
 position = Vector2( 32, 32 )
 z_index = 1
@@ -81,3 +84,10 @@ anims/walk = SubResource( 2 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -32, -32 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )

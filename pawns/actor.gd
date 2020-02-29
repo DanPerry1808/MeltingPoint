@@ -3,6 +3,9 @@ extends "pawn.gd"
 var dead: bool = false
 
 onready var grid = get_parent()
+onready var bullet_container = grid.get_node('BulletContainer')
+
+var Bullet = preload("res://Objects/Bullet.tscn")
 
 func _ready():
 	update_look_direction(Vector2.RIGHT)
@@ -55,4 +58,11 @@ func bump():
 		$AnimationPlayer.play("bump")
 		yield($AnimationPlayer, "animation_finished")
 		set_process(true)
+		
+		
+func shoot(delta, shooter):
+	var bullet = Bullet.instance()
+	bullet.init(delta, shooter, get_position())
+	bullet_container.add_child(bullet)
+	
 
