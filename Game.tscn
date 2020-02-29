@@ -61,18 +61,21 @@ scale = Vector2( 1.81136, 1.57025 )
 texture = ExtResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 640, 360 )
+offset = Vector2( 576, 232 )
 current = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-autoplay = true
+[node name="Node2D" type="Node2D" parent="Camera2D"]
+position = Vector2( -64, -128 )
 
-[node name="UI" parent="." instance=ExtResource( 11 )]
+[node name="UI" parent="Camera2D/Node2D" instance=ExtResource( 11 )]
 margin_left = -1.43195
 margin_top = -3.10218
 margin_right = -1.43188
 margin_bottom = -3.10211
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
 
 [node name="Door" parent="." instance=ExtResource( 13 )]
 position = Vector2( 608, 288 )
