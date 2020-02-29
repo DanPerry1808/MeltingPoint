@@ -16,9 +16,10 @@ func get_cell_pawn(coordinates):
 			return(node)
 
 func death_process():
-	var tree = get_tree()
-	tree.paused = true
-	$EndGamePanel.show()
+	get_node("EndGamePanel").show()
+	print("waiting for restart timer")
+	get_tree().paused = true
+	get_node("Player").death_timer.start()
 
 func request_move(pawn, direction):
 	if !pawn.dead:

@@ -11,7 +11,7 @@
 [ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/BulletContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Interface/EndGamePanel/YOU_DIED.png" type="Texture" id=12]
+[ext_resource path="res://Interface/EndGamePanel/EndGamePanel.tscn" type="PackedScene" id=12]
 
 [node name="Game" type="Node"]
 
@@ -50,13 +50,8 @@ __meta__ = {
 
 [node name="BulletContainer" parent="Grid" instance=ExtResource( 10 )]
 
-[node name="EndGamePanel" type="Node2D" parent="Grid"]
+[node name="EndGamePanel" parent="Grid" instance=ExtResource( 12 )]
 visible = false
-
-[node name="Sprite" type="Sprite" parent="Grid/EndGamePanel"]
-position = Vector2( 652.98, 321.478 )
-scale = Vector2( 1.81136, 1.57025 )
-texture = ExtResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
