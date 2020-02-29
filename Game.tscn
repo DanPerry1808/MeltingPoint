@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Objects/BulletContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Interface/EndGamePanel/YOU_DIED.png" type="Texture" id=12]
+[ext_resource path="res://grid/Door.tscn" type="PackedScene" id=13]
+[ext_resource path="res://grid/Button.tscn" type="PackedScene" id=14]
 
 [node name="Game" type="Node"]
 
@@ -59,14 +61,35 @@ texture = ExtResource( 12 )
 position = Vector2( 864, 544 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 640, 360 )
+offset = Vector2( 576, 232 )
 current = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-autoplay = true
+[node name="Node2D" type="Node2D" parent="Camera2D"]
+position = Vector2( -64, -128 )
 
 [node name="UI" parent="." instance=ExtResource( 11 )]
 margin_top = 0.0
 margin_right = 0.00012207
 margin_bottom = 6.10352e-05
+
+[node name="UI" parent="Camera2D/Node2D" instance=ExtResource( 12 )]
+margin_left = -1.43195
+margin_top = -3.10218
+margin_right = -1.43188
+margin_bottom = -3.10211
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="Door" parent="." instance=ExtResource( 13 )]
+position = Vector2( 608, 288 )
+rotation = 1.5708
+
+[node name="Button" parent="." instance=ExtResource( 14 )]
+position = Vector2( 384, 288 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+[connection signal="pressed_off" from="Button" to="Door" method="_on_Button_pressed_off"]
+[connection signal="pressed_on" from="Button" to="Door" method="_on_Button_pressed_on"]
+
