@@ -1,0 +1,10 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Interface/Theme/Font/Raleway-Black.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 125
+use_mipmaps = true
+use_filter = true
+extra_spacing_bottom = 20
+font_data = ExtResource( 1 )
