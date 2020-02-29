@@ -18,7 +18,7 @@ onready var player = get_node('../Player')
 var counter = 0
 
 # number of moves per second
-var speed = 0.5
+var speed = 2
 
 func _ready():
 	Bullet = preload("res://Objects/EnemyBullet.tscn")
@@ -65,6 +65,7 @@ func get_map(end=false):
 		else:
 			map[cell.y - bounding_rect.position.y][cell.x - bounding_rect.position.x] = -1
 	return map
+	
 	
 func find_path(point, already_grid=false):
 	
@@ -127,8 +128,7 @@ func find_path(point, already_grid=false):
 		
 func get_input_direction():
 	counter += 1
-	if counter % int(60 * speed) == 0:
-		print('this should be every second')
+	if counter % int(60 / speed) == 0:
 		return behaviour()
 	else:
 		return false
@@ -139,3 +139,7 @@ func behaviour():
 	var path = find_path(player.get_position())
 	var direction = path[1]['pos'] - path[0]['pos']
 	return direction
+	
+	
+func on_hit(shooter, enemy):
+	queue_free()

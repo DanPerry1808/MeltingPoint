@@ -56,6 +56,7 @@ scale = Vector2( 1.81136, 1.57025 )
 texture = ExtResource( 12 )
 
 [node name="MissileShootEnemy" parent="Grid" instance=ExtResource( 6 )]
+position = Vector2( 864, 544 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
@@ -66,7 +67,6 @@ stream = ExtResource( 8 )
 autoplay = true
 
 [node name="UI" parent="." instance=ExtResource( 11 )]
-margin_left = -1.43195
-margin_top = -3.10218
-margin_right = -1.43188
-margin_bottom = -3.10211
+margin_top = 0.0
+margin_right = 0.00012207
+margin_bottom = 6.10352e-05
