@@ -6,6 +6,9 @@ var path = null
 
 var testing_rotations = false
 var rot = 0
+
+func _ready():
+	speed = 1
 	
 func raycast(start, end):
 	
