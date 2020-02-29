@@ -32,6 +32,8 @@ func _ready():
 	heat_timer.start()
 	Bullet = preload("res://Objects/PlayerBullet.tscn")
 	camera.offset = get_position() - get_viewport().size / 2
+	sfx['move'] = $MoveSound
+	sfx['hot'] = $HotSound
 	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -53,6 +55,7 @@ func _input(event):
 
 func _on_Timer_timeout():
 	if onHot:
+		sfx['hot'].play()
 		change_temp(5)
 	if onCold:
 		change_temp(-100)
@@ -86,9 +89,11 @@ func check_dead():
 	if temp >= max_temp:
 		dead = true
 		print("Dead")
+		get_parent().get_parent().get_node('Camera2D').get_node('UICanvas').get_node('EndGamePanel').get_node('DieSound').play()
 		emit_signal("died")
 		
 func on_hit(shooter, damage):
+	sfx['hit'].play()
 	change_temp(damage)
 	bump()
 
@@ -97,3 +102,4 @@ func on_move():
 	var end_pos = get_position() - get_viewport().size / 2
 	tween.interpolate_property(camera, "offset", camera.offset, end_pos, 0.25, tween.TRANS_LINEAR, tween.EASE_OUT)
 	tween.start()
+	sfx['move'].play()
