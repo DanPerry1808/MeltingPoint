@@ -9,4 +9,4 @@ No downloads currently available
 - Left click - shoot
 
 ## Acknowledgements
-Thanks to the Godot Engine devs for both making the Godot engine we used for this project, and for the 2D Grid Based Movement Demo we used as a base for this project. Both of these are used under an MIT License.
+Thanks to the Godot Engine devs for both making the Godot engine we used for this project, and for the 2D Grid Based Movement Demo we used as a base for this project. Some of the textures and sprites used in the project are from here. Both of these are used under an MIT License. We'd also like to thank [Robert Abrahams on Free Music Archive](https://freemusicarchive.org/music/Robert_Abraham) for the use of his music track [All The Things Lost](https://freemusicarchive.org/music/Robert_Abraham/Top_10_Picks_From_2014/Robert_Abraham_-_01_-_All_the_things_lost).
