@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://grid/EndPoint.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Interface/EndGamePanel/EndGamePanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Grid/Grid.gd" type="Script" id=8]
+[ext_resource path="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav" type="AudioStream" id=9]
 
 [node name="Level1" type="Node2D"]
 position = Vector2( -2.05057, 2.05054 )
@@ -45,3 +46,8 @@ visible = false
 position = Vector2( -645.866, -11.1037 )
 
 [node name="UI" parent="Camera2D/UICanvas" instance=ExtResource( 6 )]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = 1.25
+autoplay = true

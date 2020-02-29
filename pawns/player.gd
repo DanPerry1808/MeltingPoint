@@ -13,7 +13,7 @@ var death_timer = Timer.new()
 
 onready var camera = get_parent().get_parent().get_node('Camera2D')
 onready var bounding_rect = grid.get_used_rect()
-	
+
 signal died
 signal temp_update
 signal ammo_update
