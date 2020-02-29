@@ -3,6 +3,9 @@ extends "res://pawns/actor.gd"
 export(int) var temp = 0
 export(int) var max_temp = 100
 
+export(int) var ammo = 10
+export(int) var max_ammo = 99
+
 var onHot = false
 var onCold = false
 var heat_timer = null
@@ -10,6 +13,7 @@ var death_timer = Timer.new()
 
 signal died
 signal temp_update
+signal ammo_update
 signal restart
 
 func _ready():
@@ -58,6 +62,10 @@ func change_temp(delta):
 		temp = 0
 	print(temp)
 	check_dead()
+	
+func update_ammo(delta):
+	emit_signal("ammo_update")
+	ammo += delta
 	
 func check_dead():
 	if temp >= max_temp:
