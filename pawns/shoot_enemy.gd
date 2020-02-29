@@ -50,6 +50,8 @@ func behaviour():
 	if pos.distance_to(player_pos) < distance + 1:
 		if !raycast(player_pos, pos):
 			# shoot the player
+			var delta = (player_pos - pos).normalized()
+			shoot(delta, self)
 			return false
 	
 	if len(path) < 2:

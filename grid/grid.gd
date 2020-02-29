@@ -2,17 +2,23 @@ extends TileMap
 
 enum CellType { EMPTY = -1, ACTOR, OBSTACLE, OBJECT }
 onready var Floor = get_node("Floor")
+onready var player = get_node("Player")
 
 func _ready():
+	player.connect("died", self, "death_process")
 	for child in get_children():
-		if child.name != "Floor":
+		if child.name != "Floor" and child.name != "BulletContainer" and child.name != "EndGamePanel":
 			set_cellv(world_to_map(child.position), child.type)
-
 
 func get_cell_pawn(coordinates):
 	for node in get_children():
 		if world_to_map(node.position) == coordinates:
 			return(node)
+
+func death_process():
+	var tree = get_tree()
+	tree.paused = true
+	$EndGamePanel.show()
 
 func request_move(pawn, direction):
 	if !pawn.dead:

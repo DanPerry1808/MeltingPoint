@@ -20,6 +20,9 @@ var counter = 0
 # number of moves per second
 var speed = 0.5
 
+func _ready():
+	Bullet = preload("res://Objects/EnemyBullet.tscn")
+
 func Node(pos, end, parent=null, cost=0):
 	return {
 		'pos': pos,
