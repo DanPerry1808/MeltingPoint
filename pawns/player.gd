@@ -68,8 +68,8 @@ func change_temp(delta):
 	check_dead()
 	
 func update_ammo(delta):
-	emit_signal("ammo_update")
 	ammo += delta
+	emit_signal("ammo_update")
 	
 func check_dead():
 	if temp >= max_temp:
