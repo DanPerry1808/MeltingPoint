@@ -26,7 +26,7 @@ func _ready():
 	death_timer.connect("timeout", self, "respawn_timeout")
 	death_timer.pause_mode = PAUSE_MODE_PROCESS
 	heat_timer.connect("timeout", self, "_on_Timer_timeout")
-	heat_timer.set_wait_time(0.2)
+	heat_timer.set_wait_time(0.3)
 	death_timer.set_wait_time(5)
 	heat_timer.set_one_shot(false)
 	heat_timer.start()
@@ -56,9 +56,9 @@ func _input(event):
 func _on_Timer_timeout():
 	if onHot:
 		sfx['hot'].play()
-		change_temp(5)
+		change_temp(2.5)
 	if onCold:
-		change_temp(-100)
+		change_temp(-2.5)
 
 func respawn_timeout():
 	print("restart")

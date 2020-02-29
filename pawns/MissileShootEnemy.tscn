@@ -7,14 +7,11 @@
 extents = Vector2( 24, 24 )
 
 [node name="MissileShootEnemy" instance=ExtResource( 1 )]
-position = Vector2( 32, 32 )
-z_index = 1
 script = ExtResource( 2 )
-
-[node name="Sprite" parent="Pivot" index="0"]
-centered = false
-offset = Vector2( -32, -32 )
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 visible = true
 shape = SubResource( 1 )
+
+[node name="CollisionPolygon2D" parent="Area2D" index="2"]
+polygon = PoolVector2Array( 5.09418, -30.2575, -4.45467, -30.1723, -14.3446, -23.9485, -19.7158, -12.6945, -21.3357, 0.605728, -20.4831, 8.36417, -18.0959, 14.3322, -13.6625, 14.929, -6.84189, 10.4104, -1.04436, 10.2398, 5.17944, 16.2931, 9.44232, 16.3784, 21.2931, 6.48851, 21.4636, -8.26107, 16.945, -19.8561, 11.7443, -25.9094 )
