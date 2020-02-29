@@ -28,6 +28,9 @@ position = Vector2( 352, 288 )
 [node name="ShootEnemy" parent="Grid" instance=ExtResource( 8 )]
 position = Vector2( 864, 416 )
 
+[node name="ShootEnemy2" parent="Grid" instance=ExtResource( 8 )]
+position = Vector2( 864, 96 )
+
 [node name="Object" type="Node2D" parent="Grid"]
 position = Vector2( 544, 288 )
 script = ExtResource( 5 )

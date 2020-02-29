@@ -45,6 +45,7 @@ func insert_into_sorted(l, item):
 		i += 1
 	l.insert(i, item)
 	
+	
 func find_path(point, already_grid=false):
 	
 	var end
@@ -84,10 +85,10 @@ func find_path(point, already_grid=false):
 					if node:
 						if node['cost'] > current['cost'] + 1:
 							insert_into_sorted(to_visit, Node(new_pos, end, current['pos'], current['cost'] + 1))
-							#to_visit.append(Node(new_pos, current['pos'], current['cost'] + 1))
+
 					else:
 						insert_into_sorted(to_visit, Node(new_pos, end, current['pos'], current['cost'] + 1))
-						#to_visit.append(Node(new_pos, current['pos'], current['cost'] + 1))
+
 		visited.append(current)
 		var i = 0
 		while i < len(to_visit):

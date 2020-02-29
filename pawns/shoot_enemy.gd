@@ -1,6 +1,6 @@
 extends "res://pawns/enemy.gd"
 
-var distance = 5
+var distance = 6
 var target = null
 var path = null
 
@@ -17,7 +17,8 @@ func behaviour():
 		target = player_pos + delta * distance
 		path = find_path(Vector2(int(target.x), int(target.y)), true)
 	
-	if pos.distance_to(player_pos) > distance - 1 and pos.distance_to(player_pos) < distance + 1:
+	if pos.distance_to(player_pos) > distance - 1 and pos.distance_to(player_pos) < distance + 1 or len(path) < 2:
+		# shoot the player
 		return false
 	
 	var direction = path[1]['pos'] - path[0]['pos']
