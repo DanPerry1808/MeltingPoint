@@ -61,9 +61,10 @@ func bump():
 		
 		
 func shoot(delta, shooter):
-	var bullet = Bullet.instance()
-	bullet.init(delta, shooter, get_position())
-	bullet_container.add_child(bullet)
+	if !dead:
+		var bullet = Bullet.instance()
+		bullet.init(delta, shooter, get_position())
+		bullet_container.add_child(bullet)
 	
 # when hit by a bullet
 func on_hit(shooter, damage):

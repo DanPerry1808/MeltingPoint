@@ -22,6 +22,7 @@ func death_process():
 	get_node("Player").death_timer.start()
 
 func request_move(pawn, direction):
+	
 	if !pawn.dead:
 		var cell_start = world_to_map(pawn.position)
 		var cell_target = cell_start + direction

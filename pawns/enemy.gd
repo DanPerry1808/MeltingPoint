@@ -142,4 +142,4 @@ func behaviour():
 	
 	
 func on_hit(shooter, enemy):
-	queue_free()
+	dead = true
