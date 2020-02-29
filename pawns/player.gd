@@ -22,6 +22,8 @@ func _ready():
 	death_timer.set_wait_time(5)
 	heat_timer.start()
 	
+	Bullet = preload("res://Objects/PlayerBullet.tscn")
+	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		var mouse_pos = event.position
@@ -34,7 +36,7 @@ func _on_Timer_timeout():
 		change_temp(1)
 	if onCold:
 		change_temp(-1)
-			
+		
 func _on_Death_timer_timeout():
 	print("Reloading")
 	dead = false
@@ -63,3 +65,7 @@ func check_dead():
 		print("Dead")
 		death_timer.start()
 		emit_signal("died")
+		
+func on_hit(shooter, damage):
+	change_temp(damage)
+	bump()
