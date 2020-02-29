@@ -19,12 +19,13 @@ func convert_to_grid_pos(pos):
 func check_collisions():
 	#var pos = get_position()
 	#set_position(pos - bounding_rect.position)
-	#print(get_position() - bounding_rect.position)
+	print('my pos', get_position())
 	for node in grid.get_children():
 		if node != shooter and "type" in node and node.type == 0:
 			print(node.get_position())
 			if node.get_node('Area2D').overlaps_area(area):
 				#set_position(pos)
+				node.on_hit()
 				return true
 	#set_position(pos)
 	

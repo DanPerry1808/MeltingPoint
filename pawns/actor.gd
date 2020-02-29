@@ -65,4 +65,6 @@ func shoot(delta, shooter):
 	bullet.init(delta, shooter, get_position())
 	bullet_container.add_child(bullet)
 	
-
+# when hit by a bullet
+func on_hit():
+	pass
