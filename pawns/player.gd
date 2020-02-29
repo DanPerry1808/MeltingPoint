@@ -26,7 +26,7 @@ func _ready():
 	death_timer.connect("timeout", self, "respawn_timeout")
 	death_timer.pause_mode = PAUSE_MODE_PROCESS
 	heat_timer.connect("timeout", self, "_on_Timer_timeout")
-	heat_timer.set_wait_time(0.1)
+	heat_timer.set_wait_time(0.2)
 	death_timer.set_wait_time(5)
 	heat_timer.set_one_shot(false)
 	heat_timer.start()
@@ -55,7 +55,7 @@ func _on_Timer_timeout():
 	if onHot:
 		change_temp(5)
 	if onCold:
-		change_temp(-1)
+		change_temp(-100)
 
 func respawn_timeout():
 	print("restart")
