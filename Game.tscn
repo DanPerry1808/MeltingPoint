@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -12,8 +12,12 @@
 [ext_resource path="res://Objects/BulletContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Interface/EndGamePanel/EndGamePanel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://grid/EndPoint.tscn" type="PackedScene" id=13]
 
 [node name="Game" type="Node"]
+
+[node name="EndPoint" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1120, 608 )
 
 [node name="Grid" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
