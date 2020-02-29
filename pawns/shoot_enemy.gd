@@ -9,10 +9,10 @@ func raycast(start, end):
 	
 	var map = get_map(end)
 	
-	var distance = int(start.distance_to(end))
-	var delta = (end - start) / distance
+	var dist = int(start.distance_to(end))
+	var delta = (end - start) / dist
 	var cells = []
-	for i in range(distance):
+	for i in range(dist):
 		cells.append(start + delta * i)
 		
 	cells.remove(0)
@@ -20,7 +20,6 @@ func raycast(start, end):
 	var value
 	for cell in cells:
 		value = map[int(cell.y)][int(cell.x)]
-		print(cell, value)
 		if value > 0:
 			return true
 	return false
@@ -49,8 +48,8 @@ func behaviour():
 				ray_to_player = true
 	
 	if pos.distance_to(player_pos) < distance + 1:
-		# shoot the player
 		if !raycast(player_pos, pos):
+			# shoot the player
 			return false
 	
 	if len(path) < 2:

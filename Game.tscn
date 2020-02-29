@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -7,8 +7,8 @@
 [ext_resource path="res://pawns/pawn.gd" type="Script" id=5]
 [ext_resource path="res://pawns/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pawns/sprites/star.png" type="Texture" id=7]
-[ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav" type="AudioStream" id=9]
+[ext_resource path="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav" type="AudioStream" id=8]
+[ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Node"]
 
@@ -21,10 +21,10 @@ script = ExtResource( 3 )
 [node name="Player" parent="Grid" instance=ExtResource( 4 )]
 
 [node name="Enemy" parent="Grid" instance=ExtResource( 6 )]
-position = Vector2( 416, 224 )
+position = Vector2( 352, 288 )
 
-[node name="ShootEnemy" parent="Grid" instance=ExtResource( 8 )]
-position = Vector2( 864, 416 )
+[node name="ShootEnemy" parent="Grid" instance=ExtResource( 9 )]
+position = Vector2( 544, 96 )
 
 [node name="Object" type="Node2D" parent="Grid"]
 position = Vector2( 544, 288 )
@@ -50,5 +50,5 @@ offset = Vector2( 640, 360 )
 current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 8 )
 autoplay = true
