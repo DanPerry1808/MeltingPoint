@@ -24,7 +24,7 @@ func raycast(start, end):
 		
 	var value
 	for cell in cells:
-		if int(cell.y) < len(map) and int(cell.x) < len(map[int(cell.y)])
+		if int(cell.y) < len(map) and int(cell.x) < len(map[int(cell.y)]):
 			value = map[int(cell.y)][int(cell.x)]
 			if value > 0:
 				return true
