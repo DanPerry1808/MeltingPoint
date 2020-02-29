@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://pawns/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pawns/shoot_enemy.gd" type="Script" id=2]
+[ext_resource path="res://pawns/sprites/enemy1.png" type="Texture" id=3]
 
 [node name="ShootEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="Sprite" parent="Pivot" index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="1"]
+polygon = PoolVector2Array( -0.196983, -31.1098, -9.59511, -27.8347, -15.0061, -22.8508, -18.566, -16.0158, -20.4172, -8.04167, -20.702, 0.217285, -19.8476, 9.33062, -17.2845, 15.3112, -13.155, 15.4536, -6.32, 10.4698, -0.624172, 10.7546, 3.7901, 15.596, 9.62833, 16.0232, 20.7352, 6.19791, 21.3048, -6.47532, 20.5928, -13.3103, 17.0329, -20.1453, 8.91635, -27.9771 )
