@@ -33,12 +33,22 @@ func _ready():
 	camera.offset = get_position()
 	
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and ammo > 0:
+	if event is InputEventMouseButton and event.pressed:
 		var mouse_pos = event.position
 		var player_pos = get_global_transform_with_canvas().origin
 		var diff = (mouse_pos - player_pos).normalized()
-		shoot(diff, self)
-		update_ammo(-1)
+		if event.button_index == BUTTON_LEFT and ammo >= 1:
+			shoot(diff, self)
+			update_ammo(-1)
+		elif event.button_index == BUTTON_RIGHT and ammo >= 3:
+			shoot(diff, self)
+			shoot(diff.rotated(.2), self)
+			shoot(diff.rotated(-.2), self)
+			update_ammo(-3)
+		elif event.button_index == BUTTON_MIDDLE and ammo >= 8:
+			for theta in range(8):
+				shoot(diff.rotated(theta * PI / 4), self)
+			update_ammo(-8)
 
 func _on_Timer_timeout():
 	if onHot:
