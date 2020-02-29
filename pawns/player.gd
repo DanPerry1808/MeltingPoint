@@ -24,11 +24,9 @@ func _ready():
 
 func _on_Timer_timeout():
 	if onHot:
-		if(temp < max_temp):
-			change_temp(1)
+		change_temp(1)
 	if onCold:
-		if(temp > 0):
-			change_temp(-1)
+		change_temp(-1)
 			
 func _on_Death_timer_timeout():
 	print("Reloading")
@@ -42,14 +40,16 @@ func get_input_direction():
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
 
-# Changes the player's temperature by the given amount
 func change_temp(delta):
-	temp += delta
 	emit_signal("temp_update", delta)
+	temp += delta
+	if temp > 100:
+		temp = 100
+	if temp < 0:
+		temp = 0
 	print(temp)
-	# Must check if player is dead after changing temp
 	check_dead()
-
+	
 func check_dead():
 	if temp >= max_temp:
 		dead = true
