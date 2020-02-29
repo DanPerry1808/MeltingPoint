@@ -5,7 +5,7 @@
 [ext_resource path="res://grid/grid.gd" type="Script" id=3]
 [ext_resource path="res://pawns/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pawns/pawn.gd" type="Script" id=5]
-[ext_resource path="res://pawns/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pawns/MissileShootEnemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pawns/sprites/star.png" type="Texture" id=7]
 [ext_resource path="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav" type="AudioStream" id=8]
 [ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=9]
@@ -22,9 +22,6 @@ tile_data = PoolIntArray( -655377, 1, 0, -655376, 1, 0, -655375, 1, 0, -655374, 
 script = ExtResource( 3 )
 
 [node name="Player" parent="Grid" instance=ExtResource( 4 )]
-
-[node name="Enemy" parent="Grid" instance=ExtResource( 6 )]
-position = Vector2( 352, 288 )
 
 [node name="ShootEnemy" parent="Grid" instance=ExtResource( 9 )]
 position = Vector2( 544, 96 )
@@ -53,6 +50,14 @@ __meta__ = {
 [node name="EndGamePanel" parent="Grid" instance=ExtResource( 12 )]
 visible = false
 
+[node name="Sprite" type="Sprite" parent="Grid/EndGamePanel"]
+position = Vector2( 652.98, 321.478 )
+scale = Vector2( 1.81136, 1.57025 )
+texture = ExtResource( 12 )
+
+[node name="MissileShootEnemy" parent="Grid" instance=ExtResource( 6 )]
+position = Vector2( 864, 544 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
 current = true
@@ -62,7 +67,5 @@ stream = ExtResource( 8 )
 autoplay = true
 
 [node name="UI" parent="." instance=ExtResource( 11 )]
-margin_left = -1.43195
-margin_top = -3.10218
-margin_right = -1.43188
-margin_bottom = -3.10211
+margin_right = 0.00012207
+margin_bottom = 6.10352e-05

@@ -4,6 +4,8 @@ var distance = 6
 var target = null
 var path = null
 
+var testing_rotations = false
+var rot = 0
 	
 func raycast(start, end):
 	
@@ -31,21 +33,23 @@ func behaviour():
 	var pos = convert_to_grid_pos(get_position())
 	
 	if !target or target.distance_to(player_pos) < distance - 1 or target.distance_to(player_pos) > distance + 1 or len(path) < 2:
-		var ray_to_player = false
-		var rot = 0
-		while !ray_to_player:
-			var delta = (pos - player_pos).normalized().rotated(rot)
-			target = player_pos + delta * distance
-			path = find_path(Vector2(int(target.x), int(target.y)), true)
-			if raycast(target, player_pos):
-				if rot == 0:
-					rot = .4
-				elif abs(rot) > PI * 2:
-					break
-				else:
-					rot -= rot * 2 + rot / abs(rot) * 0.4
+		var delta = (pos - player_pos).normalized().rotated(rot)
+		target = player_pos + delta * distance
+		path = find_path(Vector2(int(target.x), int(target.y)), true)
+		if raycast(target, player_pos):
+			testing_rotations = true
+			if rot == 0:
+				rot = .4
+			elif abs(rot) > PI * 2:
+				testing_rotations = false
+				rot = 0
 			else:
-				ray_to_player = true
+				rot -= rot * 2 + rot / abs(rot) * 0.8
+		else:
+			testing_rotations = false
+			rot = 0
+		if testing_rotations:
+			counter = 0
 	
 	if pos.distance_to(player_pos) < distance + 1:
 		if !raycast(player_pos, pos):

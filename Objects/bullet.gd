@@ -25,7 +25,7 @@ func check_collisions():
 				return true
 	
 func _process(dt):
-	set_position(get_position() + delta * speed * dt)
+	move(dt)
 	var cell = grid.get_cellv(convert_to_grid_pos(get_position()))
 	# if the bullet hit a wall
 	if cell > 0:
@@ -35,3 +35,6 @@ func _process(dt):
 		if collided:
 			queue_free()
 		
+
+func move(dt):
+	set_position(get_position() + delta * speed * dt)
