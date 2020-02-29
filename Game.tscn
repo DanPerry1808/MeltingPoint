@@ -1,4 +1,5 @@
 [gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -8,7 +9,9 @@
 [ext_resource path="res://pawns/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pawns/sprites/star.png" type="Texture" id=7]
 [ext_resource path="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav" type="AudioStream" id=8]
+[ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=9]
 [ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/BulletContainer.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node"]
 
@@ -45,6 +48,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="BulletContainer" parent="Grid" instance=ExtResource( 10 )]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
 current = true
@@ -52,3 +57,5 @@ current = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="UI" parent="." instance=ExtResource( 9 )]
