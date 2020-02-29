@@ -5,9 +5,8 @@ onready var Floor = get_node("Floor")
 
 func _ready():
 	for child in get_children():
-		if child.name != "Floor":
+		if child.name != "Floor" and child.name != "BulletContainer":
 			set_cellv(world_to_map(child.position), child.type)
-
 
 func get_cell_pawn(coordinates):
 	for node in get_children():
