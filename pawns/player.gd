@@ -33,11 +33,12 @@ func _ready():
 	camera.offset = get_position()
 	
 func _input(event):
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and ammo > 0:
 		var mouse_pos = event.position
 		var player_pos = get_global_transform_with_canvas().origin
 		var diff = (mouse_pos - player_pos).normalized()
 		shoot(diff, self)
+		update_ammo(-1)
 
 func _on_Timer_timeout():
 	if onHot:
