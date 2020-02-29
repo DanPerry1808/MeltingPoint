@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://pawns/sprites/star.png" type="Texture" id=7]
 [ext_resource path="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav" type="AudioStream" id=8]
 [ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://grid/Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://grid/Button.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node"]
 
@@ -52,3 +54,14 @@ current = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="Door" parent="." instance=ExtResource( 10 )]
+position = Vector2( 608, 288 )
+rotation = 1.5708
+
+[node name="Button" parent="." instance=ExtResource( 11 )]
+position = Vector2( 384, 288 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+[connection signal="pressed_off" from="Button" to="Door" method="_on_Button_pressed_off"]
+[connection signal="pressed_on" from="Button" to="Door" method="_on_Button_pressed_on"]
