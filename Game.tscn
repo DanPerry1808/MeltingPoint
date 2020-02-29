@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -12,8 +12,12 @@
 [ext_resource path="res://Objects/BulletContainer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Interface/EndGamePanel/EndGamePanel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://grid/EndPoint.tscn" type="PackedScene" id=13]
 
 [node name="Game" type="Node"]
+
+[node name="EndPoint" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1120, 608 )
 
 [node name="Grid" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -25,7 +29,6 @@ script = ExtResource( 3 )
 
 [node name="ShootEnemy" parent="Grid" instance=ExtResource( 9 )]
 position = Vector2( 544, 96 )
-z_index = 1
 
 [node name="Object" type="Node2D" parent="Grid"]
 position = Vector2( 544, 288 )
@@ -57,7 +60,6 @@ scale = Vector2( 1.81136, 1.57025 )
 
 [node name="MissileShootEnemy" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( 864, 544 )
-z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 640, 360 )
