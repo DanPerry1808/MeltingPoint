@@ -21,6 +21,7 @@ func death_process():
 	$EndGamePanel.show()
 
 func request_move(pawn, direction):
+	
 	if !pawn.dead:
 		var cell_start = world_to_map(pawn.position)
 		var cell_target = cell_start + direction
