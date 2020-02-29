@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://tilesets/grid_lines/grid_lines_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Interface/EndGamePanel/EndGamePanel.tscn" type="PackedScene" id=12]
 [ext_resource path="res://grid/EndPoint.tscn" type="PackedScene" id=13]
+[ext_resource path="res://AmmoPickup.tscn" type="PackedScene" id=14]
 
 [node name="Game" type="Node"]
 
@@ -50,6 +51,9 @@ __meta__ = {
 }
 
 [node name="BulletContainer" parent="Grid" instance=ExtResource( 10 )]
+
+[node name="AmmoPickup" parent="Grid/BulletContainer" instance=ExtResource( 14 )]
+position = Vector2( 224, 224 )
 
 [node name="MissileShootEnemy" parent="Grid" instance=ExtResource( 6 )]
 position = Vector2( 864, 544 )
