@@ -9,3 +9,8 @@ script = ExtResource( 2 )
 
 [node name="Sprite" parent="Pivot" index="0"]
 texture = ExtResource( 3 )
+
+[node name="HitArea" type="Area2D" parent="." index="3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitArea" index="0"]
+polygon = PoolVector2Array( 23.3424, 2.72712, 24.3913, -1.81832, 22.9928, -6.01411, -19.6645, -27.1679, -23.3358, -25.9441, -25.7833, -22.6224, -25.7833, 20.2096, -23.161, 23.8809, -18.2659, 24.5802 )

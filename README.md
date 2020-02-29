@@ -1,46 +1,12 @@
-# Slime Shooter - Godot & FOSS Learning Project
+# Melting Point
+In Melting Point, you take on the role of one of the last humans in a post-apocalpyic world (currently represented by a small, blue triangle sprite). Global warming has scorched the Earth and any direct contact with sunlight is deadly. Fortunately, you have a thermal-suit to protect from heat, but it can only do so much. Make it through the levels while trying not to overheat your suit, and watch out for the lava monsters (currently represented by small red triangles).
 
-<img alt="Slime Shooter screenshot" src="https://codeberg.org/FreedCreative/SlimeShooter/raw/branch/master/screenshot.jpg">
+## Download + Install
+No downloads currently available
 
-This is a project created with the express purpose of sharing all the source to help others learn to make a basic shooter game. This includes Godot project files for the game, Inkscape & MyPaint source files for the graphics, and LMMS source files for the sounds.
+## Controls
+- WASD - move
+- Left click - shoot
 
-# All FOSS / Libre
-
-<img alt="Player character" src="https://codeberg.org/FreedCreative/SlimeShooter/raw/branch/master/player.png">
-
-Everything is create with free, libre, open source software.
-
-Directory structure:
-
-* **Audio** - [LMMS](https://lmms.io/) source files
-
-* **Builds** - Playable builds for Linux and Windows
-
-* **GameSource** - [Godot game engine](https://godotengine.org/) project files
-
-* **Graphics** - [Inkscape](https://inkscape.org/) and [MyPaint](http://mypaint.org/) source files
-
-This project was developed on the [Manjaro](https://manjaro.org/) operating system.
-
-# License
-
-<img alt="Slimule enemy character" src="https://codeberg.org/FreedCreative/SlimeShooter/raw/branch/master/GameSource/SlimeShooter/Assets/slimule.png">
-
-Everything included here is shared freely with the only requirement being that sharing is extended to others. To that end:
-
-* License for the included code is [GPL](https://www.gnu.org/licenses/gpl-3.0.en.html)
-
-* License for the included graphics is [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)
-
-In short, use for whatever you like but please share your changes with others.
-
-There is also a font named "Press_Start_2P" included, made by [codeman38](https://twitter.com/codeman38), shared under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL%2F)
-
-# About Freed Creative
-My name is Kezz Bracey, and Freed Creative is my personal way to help people who do creative work either professionally or recreationally enjoy more software freedom and accessibility in their lives.
-
-I want digital creativity to be accessible to more people, and with more choice & freedom.
-
-* [Tutorials & time lapses on YouTube](https://www.youtube.com/channel/UCmSdEAbFY7pgw6X6W11jnVQ)
-* [Chat with me on Mastodon](https://merveilles.town/@freedcreative)
-* [Deviant Art](https://www.deviantart.com/freedcreative)
+## Acknowledgements
+Thanks to the Godot Engine devs for both making the Godot engine we used for this project, and for the 2D Grid Based Movement Demo we used as a base for this project. Some of the textures and sprites used in the project are from here. Both of these are used under an MIT License. We'd also like to thank [Robert Abrahams on Free Music Archive](https://freemusicarchive.org/music/Robert_Abraham) for the use of his music track [All The Things Lost](https://freemusicarchive.org/music/Robert_Abraham/Top_10_Picks_From_2014/Robert_Abraham_-_01_-_All_the_things_lost).

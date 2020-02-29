@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/button_on.png-a1c52fbff54db74c60651a368f871ec8.stex"
+path="res://.import/YOU_DIED.png-319c627dbc83926986cc74f8f44c23d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/env/button_on.png"
-dest_files=[ "res://.import/button_on.png-a1c52fbff54db74c60651a368f871ec8.stex" ]
+source_file="res://Interface/EndGamePanel/YOU_DIED.png"
+dest_files=[ "res://.import/YOU_DIED.png-319c627dbc83926986cc74f8f44c23d7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

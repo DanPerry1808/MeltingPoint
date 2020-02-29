@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interface/EndGamePanel/YOU_DIED.png" type="Texture" id=1]
+
+[node name="EndGamePanel" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 652.98, 321.478 )
+scale = Vector2( 1.81136, 1.57025 )
+texture = ExtResource( 1 )
