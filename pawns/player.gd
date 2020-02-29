@@ -37,8 +37,14 @@ func _input(event):
 		var mouse_pos = event.position
 		var player_pos = get_global_transform_with_canvas().origin
 		var diff = (mouse_pos - player_pos).normalized()
-		shoot(diff, self)
-		update_ammo(-1)
+		if event.button_index == BUTTON_LEFT:
+			shoot(diff, self)
+			update_ammo(-1)
+		elif event.button_index == BUTTON_RIGHT:
+			shoot(diff, self)
+			shoot(diff.rotated(.2), self)
+			shoot(diff.rotated(-.2), self)
+			update_ammo(-3)
 
 func _on_Timer_timeout():
 	if onHot:
