@@ -16,7 +16,7 @@ func get_cell_pawn(coordinates):
 			return(node)
 
 func death_process():
-	get_node("EndGamePanel").show()
+	get_parent().get_node("Camera2D").get_node("UICanvas").get_node("EndGamePanel").show()
 	print("waiting for restart timer")
 	get_tree().paused = true
 	get_node("Player").death_timer.start()
