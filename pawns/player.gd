@@ -52,7 +52,7 @@ func _input(event):
 
 func _on_Timer_timeout():
 	if onHot:
-		change_temp(10)
+		change_temp(5)
 	if onCold:
 		change_temp(-1)
 
