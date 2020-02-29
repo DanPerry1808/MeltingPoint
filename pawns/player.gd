@@ -12,6 +12,7 @@ var heat_timer = null
 var death_timer = Timer.new()
 
 onready var camera = get_parent().get_parent().get_node('Camera2D')
+onready var bounding_rect = grid.get_used_rect()
 
 signal died
 signal temp_update
@@ -30,7 +31,7 @@ func _ready():
 	heat_timer.set_one_shot(false)
 	heat_timer.start()
 	Bullet = preload("res://Objects/PlayerBullet.tscn")
-	camera.offset = get_position()
+	camera.offset = get_position() - get_viewport().size / 2
 	
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -93,5 +94,6 @@ func on_hit(shooter, damage):
 
 func on_move():
 	var tween = camera.get_node("Tween")
-	tween.interpolate_property(camera, "offset", camera.offset, get_position(), 0.25, tween.TRANS_LINEAR, tween.EASE_OUT)
+	var end_pos = get_position() - get_viewport().size / 2
+	tween.interpolate_property(camera, "offset", camera.offset, end_pos, 0.25, tween.TRANS_LINEAR, tween.EASE_OUT)
 	tween.start()
