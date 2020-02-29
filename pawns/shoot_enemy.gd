@@ -20,7 +20,6 @@ func raycast(start, end):
 	var value
 	for cell in cells:
 		value = map[int(cell.y)][int(cell.x)]
-		print(cell, value)
 		if value > 0:
 			return true
 	return false
