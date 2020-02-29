@@ -6,5 +6,5 @@ func _ready():
 	player.connect("temp_update", self, "_on_temp_update")
 	pass
 
-func _on_temp_update(temp):
-	self.get_node("TextureProgress").value = temp
+func _on_temp_update(delta):
+	self.get_node("TextureProgress").value += delta
