@@ -58,3 +58,9 @@ func update_pawn_position(pawn, cell_start, cell_target):
 	set_cellv(cell_target, pawn.type)
 	set_cellv(cell_start, CellType.EMPTY)
 	return map_to_world(cell_target) + cell_size / 2
+	
+	
+func kill_pawn(node):
+	var cell = world_to_map(node.get_position())
+	set_cellv(cell, CellType.EMPTY)
+	node.queue_free()
