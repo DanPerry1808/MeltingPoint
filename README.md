@@ -1,4 +1,5 @@
 # Melting Point
+[Screenshot of a level](./misc/GameScreenshot.png)
 In Melting Point, you take on the role of one of the last humans in a post-apocalpyic world . Global warming has scorched the Earth and any direct contact with sunlight is deadly. Fortunately, you have a thermal-suit to protect from heat, but it can only do so much. Make it through the levels while trying not to overheat your suit, and watch out for the lava monsters.
 
 ## Download + Install
