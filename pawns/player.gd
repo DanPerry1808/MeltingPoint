@@ -17,7 +17,6 @@ onready var bounding_rect = grid.get_used_rect()
 signal died
 signal temp_update
 signal ammo_update
-signal restart
 
 func _ready():
 	heat_timer = Timer.new()
@@ -40,25 +39,28 @@ func _input(event):
 		var mouse_pos = event.position
 		var player_pos = get_global_transform_with_canvas().origin
 		var diff = (mouse_pos - player_pos).normalized()
-		if event.button_index == BUTTON_LEFT and ammo >= 1:
+		if event.button_index == BUTTON_LEFT and ammo >= 1 and temp >= 10:
 			shoot(diff, self)
 			update_ammo(-1)
-		elif event.button_index == BUTTON_RIGHT and ammo >= 3:
+			change_temp(-10)
+		elif event.button_index == BUTTON_RIGHT and ammo >= 3 and temp >= 10:
 			shoot(diff, self)
 			shoot(diff.rotated(.2), self)
 			shoot(diff.rotated(-.2), self)
 			update_ammo(-3)
-		elif event.button_index == BUTTON_MIDDLE and ammo >= 8:
+			change_temp(-10)
+		elif event.button_index == BUTTON_MIDDLE and ammo >= 8 and temp >= 10:
 			for theta in range(8):
 				shoot(diff.rotated(theta * PI / 4), self)
 			update_ammo(-8)
+			change_temp(-10)
 
 func _on_Timer_timeout():
 	if onHot:
 		sfx['hot'].play()
-		change_temp(2.5)
+		change_temp(5)
 	if onCold:
-		change_temp(-2.5)
+		change_temp(-1.25)
 
 func respawn_timeout():
 	print("restart")
@@ -78,7 +80,6 @@ func change_temp(delta):
 		temp = 100
 	if temp < 0:
 		temp = 0
-	print(temp)
 	check_dead()
 	
 func update_ammo(delta):

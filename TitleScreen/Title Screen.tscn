@@ -70,7 +70,7 @@ margin_top = 143.0
 margin_right = 1040.0
 margin_bottom = 203.0
 rect_min_size = Vector2( 360, 60 )
-scene_to_load = "res://Game.tscn"
+scene_to_load = "res://Level1.tscn"
 
 [node name="ChooseLevelButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_left = 0.0

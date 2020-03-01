@@ -17,7 +17,6 @@ position = Vector2( -2.05057, 2.05054 )
 
 [node name="EndPoint" parent="." instance=ExtResource( 2 )]
 position = Vector2( 97.205, 101.212 )
-next_level = "res://Level2.tscn"
 
 [node name="Grid" type="TileMap" parent="."]
 position = Vector2( -0.860535, 1.96718 )

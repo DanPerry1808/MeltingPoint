@@ -17,7 +17,6 @@ func get_cell_pawn(coordinates):
 
 func death_process():
 	get_parent().get_node("Camera2D").get_node("UICanvas").get_node("EndGamePanel").show()
-	print("waiting for restart timer")
 	get_tree().paused = true
 	get_node("Player").death_timer.start()
 
@@ -51,7 +50,6 @@ func request_move(pawn, direction):
 				if pawn_name == "Player":
 					var player = get_cell_pawn(cell_target)
 					player.change_temp(5)
-				print("Cell %s contains %s" % [cell_target, pawn_name])
 
 
 func update_pawn_position(pawn, cell_start, cell_target):
