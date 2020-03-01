@@ -9,7 +9,7 @@ onready var grid = get_parent().get_parent()
 onready var bounding_rect = grid.get_used_rect()
 onready var area = $Area2D
 
-func init(d, s, pos, dam=1):
+func init(d, s, pos):
 	delta = d
 	shooter = s
 	set_position(pos)

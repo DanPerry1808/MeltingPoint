@@ -142,7 +142,7 @@ func behaviour():
 	
 func on_hit(shooter, enemy):
 	sfx['hit'].play()
-	if shooter and !shooter.dead:
+	if shooter and 'dead' in shooter and !shooter.dead:
 		shooter.change_temp(-25)
 	die()
 	#grid.kill_pawn(self)

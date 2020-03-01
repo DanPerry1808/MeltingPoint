@@ -16,6 +16,7 @@
 
 [node name="EndPoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 864, 416 )
+next_level = "Level3.tscn"
 
 [node name="Grid" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
