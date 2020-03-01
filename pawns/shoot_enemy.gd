@@ -9,6 +9,7 @@ var rot = 0
 
 func _ready():
 	speed = 1
+	hp = 10
 	
 func raycast(start, end):
 	
