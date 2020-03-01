@@ -7,7 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_EndPoint_area_entered(area):
-	if next_level != null or next_level == "":
+	if not next_level.empty():
 		get_tree().change_scene(next_level)
 	else:
 		print("No next level selected")

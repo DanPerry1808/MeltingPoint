@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://grid/Grid.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/grid/grid_tileset.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://grid/EndPoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://pawns/MissileShootEnemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://AmmoPickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://media.io_Robert_Abraham_-_01_-_All_The_Things_Lost.wav" type="AudioStream" id=12]
 
 [node name="Level2" type="Node2D"]
 
@@ -59,6 +60,7 @@ position = Vector2( 544, 160 )
 
 [node name="EndPoint" parent="." instance=ExtResource( 9 )]
 position = Vector2( 864, 416 )
+next_level = "Level3.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -72,3 +74,5 @@ visible = false
 [node name="UI" parent="Camera2D/CanvasLayer" instance=ExtResource( 3 )]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
