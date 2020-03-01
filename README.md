@@ -1,5 +1,5 @@
 # Melting Point
-![Screenshot of a level](./misc/GameScreenshot.JPG)
+![Screenshot of a level](./misc/GameScreenshot.jpg)
 In Melting Point, you take on the role of one of the last humans in a post-apocalpyic world . Global warming has scorched the Earth and any direct contact with sunlight is deadly. Fortunately, you have a thermal-suit to protect from heat, but it can only do so much. Make it through the levels while trying not to overheat your suit, and watch out for the lava monsters.
 
 You can cool your suit off by standing in cool spots or by shooting your gun, but be careful not to run out of ammo. Your gun also requires heat to function, so make sure your heat bar isn't empty before attacking.
