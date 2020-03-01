@@ -46,6 +46,12 @@ position = Vector2( 2269.15, 165.286 )
 [node name="ShootEnemy2" parent="Grid" instance=ExtResource( 11 )]
 position = Vector2( 1504.29, 807.108 )
 
+[node name="ShootEnemy3" parent="Grid" instance=ExtResource( 11 )]
+position = Vector2( 1948.07, 222.785 )
+
+[node name="ShootEnemy4" parent="Grid" instance=ExtResource( 11 )]
+position = Vector2( 200.145, 378.543 )
+
 [node name="EndPoint" parent="." instance=ExtResource( 2 )]
 position = Vector2( 97.205, 101.212 )
 next_level = "Level2.tscn"
