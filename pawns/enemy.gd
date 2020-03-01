@@ -13,7 +13,9 @@ var dirs = [
 	#Vector2(-1, 1)
 ]
 onready var bounding_rect = grid.get_used_rect()
-onready var player = get_node('../Player')
+onready var player = get_node("../Player")
+
+onready var hp
 
 var counter = 0
 
@@ -126,7 +128,6 @@ func find_path(point, already_grid=false):
 		
 func get_input_direction():
 	counter += 1
-	print(player.get_position().distance_to(get_position()))
 	if counter % int(60 / speed) == 0 and player.get_position().distance_to(get_position()) < 600:
 		return behaviour()
 	else:
