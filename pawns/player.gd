@@ -43,15 +43,17 @@ func _input(event):
 			shoot(diff, self)
 			update_ammo(-1)
 			change_temp(-10)
-		elif event.button_index == BUTTON_RIGHT and ammo >= 3:
+		elif event.button_index == BUTTON_RIGHT and ammo >= 3 and temp >= 10:
 			shoot(diff, self)
 			shoot(diff.rotated(.2), self)
 			shoot(diff.rotated(-.2), self)
 			update_ammo(-3)
-		elif event.button_index == BUTTON_MIDDLE and ammo >= 8:
+			change_temp(-10)
+		elif event.button_index == BUTTON_MIDDLE and ammo >= 8 and temp >= 10:
 			for theta in range(8):
 				shoot(diff.rotated(theta * PI / 4), self)
 			update_ammo(-8)
+			change_temp(-10)
 
 func _on_Timer_timeout():
 	if onHot:
