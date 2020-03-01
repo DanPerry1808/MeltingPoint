@@ -86,6 +86,10 @@ func on_hit(shooter, damage):
 func on_move():
 	pass
 	
+	
+func change_temp(temp):
+	pass
+	
 
 func die():
 	if !dead:

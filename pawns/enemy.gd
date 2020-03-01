@@ -87,7 +87,7 @@ func find_path(point, already_grid=false):
 	while current['pos'] != end:
 		for dir in dirs:
 			var new_pos = current['pos'] + dir
-			if map[new_pos.y][new_pos.x] <= 0:
+			if new_pos.y < len(map) and new_pos.x < len(map[new_pos.y]) and map[new_pos.y][new_pos.x] <= 0:
 				var node = list_contains_pos(visited, new_pos)
 				if !node:
 					node = list_contains_pos(to_visit, new_pos)
@@ -126,7 +126,8 @@ func find_path(point, already_grid=false):
 		
 func get_input_direction():
 	counter += 1
-	if counter % int(60 / speed) == 0:
+	print(player.get_position().distance_to(get_position()))
+	if counter % int(60 / speed) == 0 and player.get_position().distance_to(get_position()) < 600:
 		return behaviour()
 	else:
 		return false
@@ -141,6 +142,7 @@ func behaviour():
 	
 func on_hit(shooter, enemy):
 	sfx['hit'].play()
-	shooter.change_temp(-25)
+	if shooter and !shooter.dead:
+		shooter.change_temp(-25)
 	die()
 	#grid.kill_pawn(self)
