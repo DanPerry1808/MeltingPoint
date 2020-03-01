@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://grid/Grid.gd" type="Script" id=1]
 [ext_resource path="res://pawns/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://AmmoPickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://pawns/MissileShootEnemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://grid/EndPoint.tscn" type="PackedScene" id=12]
 
 [node name="Level3" type="Node2D"]
 
@@ -75,6 +76,10 @@ position = Vector2( 288, 1120 )
 
 [node name="MissileShootEnemy8" parent="Grid" instance=ExtResource( 10 )]
 position = Vector2( 672, 1632 )
+
+[node name="EndPoint" parent="." instance=ExtResource( 12 )]
+position = Vector2( -544, 1536 )
+next_level = "Level4.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
