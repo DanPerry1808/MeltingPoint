@@ -12,7 +12,6 @@
 [ext_resource path="res://pawns/MissileShootEnemy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://pawns/ShootEnemy.tscn" type="PackedScene" id=11]
 
-
 [node name="Level1" type="Node2D"]
 position = Vector2( -2.05057, 2.05054 )
 
@@ -40,17 +39,19 @@ tile_data = PoolIntArray( 65537, 1, 0, 65540, 1, 0, 65541, 2, 0, 65542, 2, 0, 65
 
 [node name="MissileShootEnemy2" parent="Grid" instance=ExtResource( 10 )]
 position = Vector2( 163.742, 745.124 )
-type = 0
+z_index = 1
 
 [node name="MissileShootEnemy3" parent="Grid" instance=ExtResource( 10 )]
 position = Vector2( 1120.3, 166.606 )
-type = 0
+z_index = 1
 
 [node name="ShootEnemy" parent="Grid" instance=ExtResource( 11 )]
 position = Vector2( 2269.15, 165.286 )
+z_index = 1
 
 [node name="ShootEnemy2" parent="Grid" instance=ExtResource( 11 )]
 position = Vector2( 1504.29, 807.108 )
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 639.454, 360.007 )

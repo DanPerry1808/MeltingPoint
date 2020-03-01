@@ -1,5 +1,5 @@
 extends "res://Objects/bullet.gd"
 
 func _ready():
-	damage = 5
+	damage = 10
 	speed = 300
