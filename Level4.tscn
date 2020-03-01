@@ -70,6 +70,9 @@ position = Vector2( 1318.54, 1510.33 )
 [node name="AmmoPickup3" parent="Grid/BulletContainer" instance=ExtResource( 10 )]
 position = Vector2( 99.319, 1637.05 )
 
+[node name="EndPoint" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1313.02, 356.357 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
@@ -82,6 +85,3 @@ current = true
 
 [node name="EndGamePanel" parent="Camera2D/UICanvas" instance=ExtResource( 3 )]
 visible = false
-
-[node name="EndPoint" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1313.02, 356.357 )

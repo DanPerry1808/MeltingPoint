@@ -15,10 +15,6 @@
 [node name="Level1" type="Node2D"]
 position = Vector2( -2.05057, 2.05054 )
 
-[node name="EndPoint" parent="." instance=ExtResource( 2 )]
-position = Vector2( 97.205, 101.212 )
-next_level = "Level2.tscn"
-
 [node name="Grid" type="TileMap" parent="."]
 position = Vector2( -0.860535, 1.96718 )
 tile_set = ExtResource( 1 )
@@ -49,6 +45,10 @@ position = Vector2( 2269.15, 165.286 )
 
 [node name="ShootEnemy2" parent="Grid" instance=ExtResource( 11 )]
 position = Vector2( 1504.29, 807.108 )
+
+[node name="EndPoint" parent="." instance=ExtResource( 2 )]
+position = Vector2( 97.205, 101.212 )
+next_level = "Level2.tscn"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 639.454, 360.007 )
